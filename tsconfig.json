@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es5",
+    "lib": ["esnext"],
+    "esModuleInterop": true,
+    "sourceRoot": "/",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "rootDir": "./",
+
+    /* ------ Our additional configuration ------ */
+
+    /* Basic Options */
+    "strict": true /* Enable all strict type-checking options. */,
+    "removeComments": false /* Do not emit comments to output. Must be false so jsdocs works */,
+
+    /* Strict Type-Checking Options */
+    "noImplicitReturns": true,
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "strictNullChecks": true /* Enable strict null checks. */,
+    "strictFunctionTypes": true /* Enable strict checking of function types. */,
+    "strictPropertyInitialization": true /* Enable strict checking of property initialization in classes. */,
+    "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+
+    /* Module Resolution Options */
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+
+    /* Additional Checks */
+    "noUnusedLocals": false /* Report errors on unused locals. */,
+    "noUnusedParameters": false /* Report errors on unused parameters. */,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+
+    /* Source Map Options */
+    "sourceMap": true /* Generates corresponding '.map' file. */
+  },
+  "exclude": ["dist", "node_modules", "build"],
+  "include": ["./src/**/*", "./tests/**/*"]
+}
