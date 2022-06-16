@@ -1,0 +1,32 @@
+{
+  "name": "@perimetre/lib",
+  "description": "A bundle with all of our utilities and reusable bits",
+  "version": "0.7.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perimetre/lib.git"
+  },
+  "author": "Perimetre (https://perimetre.co/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perimetre/lib/issues"
+  },
+  "homepage": "https://github.com/perimetre/lib#readme",
+  "main": "dist/cjs/index",
+  "module": "dist/esm/index",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "engines": {
+    "node": "14.17.0",
+    "npm": "^6.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {}
+}
