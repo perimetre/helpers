@@ -1,8 +1,4 @@
-/**
- * The main starting point of the application.
- */
-const main = async () => {
-  console.log('Starting...');
-};
-
-main();
+export * from './helpers';
+export * from './mappers';
+export * from './predicates';
+export * from './types';

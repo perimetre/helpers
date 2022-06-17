@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
+    "declaration": true,
+    "declarationDir": "dist",
     "allowJs": true,
     "target": "es5",
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "esModuleInterop": true,
     "sourceRoot": "/",
     "moduleResolution": "node",
