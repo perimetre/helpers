@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [0.1.1] - 2022-06-17
+
+### Fixed
+
+- Fixed generic types for array helpers
+
 ## [0.1.0] - 2022-06-17
 
 ### Added
