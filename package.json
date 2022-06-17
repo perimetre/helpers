@@ -34,7 +34,7 @@
     "check-commit": "npm run type-check && npm run lint:fix && npm run prettier",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "prepare": "husky install"
+    "prepare": "husky install && npm run build"
   },
   "dependencies": {
     "@faker-js/faker": "^7.2.0",
