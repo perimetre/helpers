@@ -1,0 +1,48 @@
+{
+  "extends": [
+    // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["jsdoc", "tsc"],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "jsdoc/require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "ArrowFunctionExpression": true,
+          "ClassDeclaration": true,
+          "ClassExpression": true,
+          "FunctionDeclaration": true,
+          "FunctionExpression": true,
+          "MethodDefinition": true
+        }
+      }
+    ],
+    "jsdoc/require-description": "error",
+    "jsdoc/require-returns-type": "off",
+    "jsdoc/require-returns": "off",
+    "jsdoc/require-param-type": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        // Fixes mismatching windows/unix file end of lines
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        // Disable "no requires" for js files
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
+}

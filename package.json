@@ -1,7 +1,7 @@
 {
   "name": "@perimetre/lib",
   "description": "A bundle with all of our utilities and reusable bits",
-  "version": "0.7.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/perimetre/lib.git"
@@ -26,12 +26,34 @@
     "npm": "^6.14"
   },
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "prettier": "prettier --ignore-unknown --write \"**/*\"",
+    "lint": "eslint . --ext js --ext ts --ext json",
+    "lint:fix": "npm run lint -- --fix",
+    "type-check": "tsc --noEmit",
+    "check-commit": "npm run type-check && npm run lint:fix && npm run prettier",
+    "prepare": "husky install"
   },
   "dependencies": {
     "typescript": "^4.7.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsdoc": "^39.3.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-tsc": "^2.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.2",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "src/**/*": "prettier --ignore-unknown --write",
+    "src/**/*.ts?(x)": "eslint --fix --plugin tsc --rule 'tsc/config: [2, {configFile: \"./tsconfig.json\"}]'"
   }
 }
