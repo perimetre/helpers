@@ -1,0 +1,28 @@
+name: publish the package
+
+on:
+  workflow_dispatch:
+  push:
+    # Publish the package as `v1.2.3` tags are created.
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          check-latest: true
+          registry-url: 'https://npm.pkg.github.com'
+      - run: npm ci
+        env:
+          # Logs in into github packages
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # This will run the build process due to the "prepare" script
+      - run: npm publish
+        env:
+          # Logs in into github packages
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
