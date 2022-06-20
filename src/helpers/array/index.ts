@@ -6,11 +6,12 @@
  * @param item the item to insert
  * @returns a new copy of the array with the item inserted
  */
-export const insertIntoArray = <T extends Array<Y>, Y extends unknown>(array: T, index: number, item: Y) => [
-  ...array.slice(0, index),
-  item,
-  ...array.slice(index) // This one is inclusive
-];
+export const insertIntoArray = <T extends Array<Y>, Y>(array: T, index: number, item: Y): T =>
+  [
+    ...array.slice(0, index),
+    item,
+    ...array.slice(index) // This one is inclusive
+  ] as T;
 
 /**
  * Replaces an item in an array at an specific index
@@ -20,11 +21,12 @@ export const insertIntoArray = <T extends Array<Y>, Y extends unknown>(array: T,
  * @param item the item to replace with
  * @returns a new copy of the array with the item replaced
  */
-export const replaceIntoArray = <T extends Array<Y>, Y extends unknown>(array: T, index: number, item: Y) => [
-  ...array.slice(0, index),
-  item,
-  ...array.slice(index + 1) // This one skips the item, thus removing it
-];
+export const replaceIntoArray = <T extends Array<Y>, Y>(array: T, index: number, item: Y): T =>
+  [
+    ...array.slice(0, index),
+    item,
+    ...array.slice(index + 1) // This one skips the item, thus removing it
+  ] as T;
 
 /**
  * Finds the next element from an array
@@ -33,7 +35,7 @@ export const replaceIntoArray = <T extends Array<Y>, Y extends unknown>(array: T
  * @param predicate the predicate to use to find the next element
  * @returns the next element or the first if there is no next element
  */
-export const findNextInArray = <T extends Array<Y>, Y extends unknown>(
+export const findNextInArray = <T extends Array<Y>, Y>(
   array: T,
   predicate: (value: Y, index: number, obj: Y[]) => boolean
 ): Y => {
@@ -42,4 +44,43 @@ export const findNextInArray = <T extends Array<Y>, Y extends unknown>(
   nextIndex = nextIndex >= array.length ? 0 : nextIndex;
 
   return array[nextIndex];
+};
+
+/**
+ * Takes an array and limits it to a specific length.
+ * It removes the elements at the end
+ *
+ * @example
+ * const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ * const limitedArray = limitEnd(array, 5);
+ * // limitedArray = [1, 2, 3, 4, 5]
+ *
+ * @param array the array to limit
+ * @param max the maximum length of the array
+ * @returns a new copy of the array with the length limited
+ */
+export const limitEnd = <T extends Array<unknown>>(array: T, max: number): T => array.slice(0, max) as T;
+
+/**
+ * Takes an array and limits it to a specific length.
+ * It removes the elements at the start
+ *
+ * @example
+ * const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ * const limitedArray = limitStart(array, 5);
+ * // limitedArray = [6, 7, 8, 9, 10]
+ *
+ * @param array the array to limit
+ * @param max the maximum length of the array
+ * @returns a new copy of the array with the length limited
+ */
+export const limitStart = <T extends Array<unknown>>(array: T, max: number): T => {
+  // The slice method takes the absolute value, so if the max is greater than the index
+  // It would start considering -2 as 2, -3 as 3. So instead of doing that.
+  // Let's return the empty array if the max is greater than the length, as if there are no more elements to limit
+  if (max > array.length) {
+    return [] as unknown as T;
+  }
+
+  return array.slice(array.length - max) as T;
 };
