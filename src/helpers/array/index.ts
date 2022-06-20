@@ -29,6 +29,42 @@ export const replaceIntoArray = <T extends Array<Y>, Y>(array: T, index: number,
   ] as T;
 
 /**
+ * Finds the next index of an array
+ *
+ * @param array the array to search in
+ * @param predicate the predicate to use to find the next index
+ * @returns the next index or the first if there is no next index
+ */
+export const findNextIndex = <T extends Array<Y>, Y>(
+  array: T,
+  predicate: (value: Y, index: number, obj: Y[]) => boolean
+): number => {
+  const currentIndex = array.findIndex(predicate);
+  let nextIndex = currentIndex + 1;
+  nextIndex = nextIndex >= array.length ? 0 : nextIndex;
+
+  return nextIndex;
+};
+
+/**
+ * Finds the previous index of an array
+ *
+ * @param array the array to search in
+ * @param predicate the predicate to use to find the previous index
+ * @returns the previous index or the first if there is no previous index
+ */
+export const findPreviousIndex = <T extends Array<Y>, Y>(
+  array: T,
+  predicate: (value: Y, index: number, obj: Y[]) => boolean
+): number => {
+  const currentIndex = array.findIndex(predicate);
+  let previousIndex = currentIndex - 1;
+  previousIndex = previousIndex < 0 ? array.length - 1 : previousIndex;
+
+  return previousIndex;
+};
+
+/**
  * Finds the next element from an array
  *
  * @param array the array to search in
@@ -38,13 +74,19 @@ export const replaceIntoArray = <T extends Array<Y>, Y>(array: T, index: number,
 export const findNextInArray = <T extends Array<Y>, Y>(
   array: T,
   predicate: (value: Y, index: number, obj: Y[]) => boolean
-): Y => {
-  const currentIndex = array.findIndex(predicate);
-  let nextIndex = currentIndex + 1;
-  nextIndex = nextIndex >= array.length ? 0 : nextIndex;
+): Y => array[findNextIndex(array, predicate)];
 
-  return array[nextIndex];
-};
+/**
+ * Finds the previous element of an array
+ *
+ * @param array the array to search in
+ * @param predicate the predicate to use to find the previous element
+ * @returns the previous element or the first if there is no previous element
+ */
+export const findPreviousInArray = <T extends Array<Y>, Y>(
+  array: T,
+  predicate: (value: Y, index: number, obj: Y[]) => boolean
+): Y => array[findPreviousIndex(array, predicate)];
 
 /**
  * Takes an array and limits it to a specific length.

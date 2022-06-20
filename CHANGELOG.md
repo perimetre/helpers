@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [0.3.0] - 2022-06-20
+
+### Added
+
+- Adds find previous and next indexes to array helpers
+
 ## [0.2.0] - 2022-06-20
 
 ### Added

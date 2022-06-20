@@ -1,7 +1,7 @@
 {
   "name": "@perimetre/helpers",
-  "description": "A bundle with all of our utilities and reusable bits",
-  "version": "0.2.0",
+  "description": "Our bundle with all of our utilities and reusable helpers",
+  "version": "0.3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/perimetre/helpers.git"
