@@ -119,9 +119,9 @@ export const limitEnd = <T extends Array<unknown>>(array: T, max: number): T => 
 export const limitStart = <T extends Array<unknown>>(array: T, max: number): T => {
   // The slice method takes the absolute value, so if the max is greater than the index
   // It would start considering -2 as 2, -3 as 3. So instead of doing that.
-  // Let's return the empty array if the max is greater than the length, as if there are no more elements to limit
+  // Then, let's make max the array length, so at least the user gets everything
   if (max > array.length) {
-    return [] as unknown as T;
+    max = array.length;
   }
 
   return array.slice(array.length - max) as T;

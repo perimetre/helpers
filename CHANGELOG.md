@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [0.3.2] - 2022-06-20
+
+### Fixed
+
+- Fixes incorrect returned value on `limitStart`
+
 ## [0.3.1] - 2022-06-20
 
 ### Fixed
