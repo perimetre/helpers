@@ -19,10 +19,12 @@ export const stripNullFromObject = <T extends Record<string, unknown>>(obj: T): 
       .filter(([, value]) => value !== null)
       .map(
         ([key, value]) =>
-          [key, value === Object(value) ? stripNullFromObject(value as Record<string, unknown>) : value] as [
-            string,
-            unknown
-          ]
+          [
+            key,
+            value === Object(value) && !Array.isArray(value)
+              ? stripNullFromObject(value as Record<string, unknown>)
+              : value
+          ] as [string, unknown]
       )
   ) as T;
 
