@@ -126,3 +126,46 @@ export const limitStart = <T extends Array<unknown>>(array: T, max: number): T =
 
   return array.slice(array.length - max) as T;
 };
+
+/**
+ * Moves an item from one index to another inside the array
+ *
+ * @param array the original array
+ * @param initialIndex the index of the item to move
+ * @param targetIndex the index to move the item to
+ * @returns a new copy of the array with the item moved
+ */
+export const shiftIndexInArray = <T extends Array<Y>, Y>(array: T, initialIndex: number, targetIndex: number): T => {
+  const item = array[initialIndex];
+  // Insert the item into the new index
+  return insertIntoArray(
+    // Returns a new copy of the array without the item at the current index
+    array.filter((_, index) => index !== initialIndex),
+    targetIndex,
+    item
+  ) as T;
+};
+
+/**
+ * Moves an item to the next position in the array
+ *
+ * @param array the original array
+ * @param initialIndex the index of the item to move
+ * @returns a new copy of the array with the item moved
+ */
+export const shiftToNextIndexInArray = <T extends Array<Y>, Y>(array: T, initialIndex: number): T => {
+  const nextIndex = findNextIndex(array, (_, index) => index === initialIndex);
+  return shiftIndexInArray(array, initialIndex, nextIndex);
+};
+
+/**
+ * Moves an item to the previous position in the array
+ *
+ * @param array the original array
+ * @param initialIndex the index of the item to move
+ * @returns a new copy of the array with the item moved
+ */
+export const shiftToPreviousIndexInArray = <T extends Array<Y>, Y>(array: T, initialIndex: number): T => {
+  const previousIndex = findPreviousIndex(array, (_, index) => index === initialIndex);
+  return shiftIndexInArray(array, initialIndex, previousIndex);
+};
