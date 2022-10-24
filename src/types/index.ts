@@ -20,3 +20,8 @@ export type AppendUndefinedWhereItsNull<TModel> = AppendTypeToKeyOfType<TModel, 
  * A helper type that picks the provided properties, and make all other properties optional
  */
 export type PickOtherwisePartial<T, K extends keyof T> = Pick<T, K> & Partial<Omit<T, K>>;
+
+/**
+ * A helper type that transforms selected fields in partial, and leave others intact
+ */
+export type PartialPick<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;

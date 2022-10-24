@@ -24,6 +24,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 ### Fixed
+
+## [1.1.0] - 2022-10-24
+
+### Added
+
+- Added `PartialPick`
+
 ## [1.0.0] - 2022-08-17
 
 ### Changes
