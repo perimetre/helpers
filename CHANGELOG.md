@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.2.1] - 2022-12-08
+
+### Added
+
+- Fixes when removing index from array. To only allow valid indexes to be removed
+
 ## [1.2.0] - 2022-12-08
 
 ### Added

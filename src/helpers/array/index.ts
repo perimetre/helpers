@@ -35,11 +35,18 @@ export const replaceIntoArray = <T extends Array<Y>, Y>(array: T, index: number,
  * @param index the index to remove
  * @returns a new copy of the array with the item at the given index removed
  */
-export const removeIndexArray = <T extends Array<Y>, Y>(array: T, index: number): T =>
-  [
+export const removeIndexArray = <T extends Array<Y>, Y>(array: T, index: number): T => {
+  // If item is not found, return the original array
+  if (index === -1 || index >= array.length) {
+    // Make a copy since the user expect the original array to be untouched
+    return [...array] as T;
+  }
+
+  return [
     ...array.slice(0, index),
     ...array.slice(index + 1) // This one skips the item, thus removing it
   ] as T;
+};
 
 /**
  * Finds the next index of an array
@@ -193,14 +200,4 @@ export const shiftToPreviousIndexInArray = <T extends Array<Y>, Y>(array: T, ini
 export const removeFromArray = <T extends Array<Y>, Y>(
   array: T,
   predicate: (value: T[number], index: number, arr: T[number][]) => boolean
-): T => {
-  const index = array.findIndex(predicate);
-
-  // If item is not found, return the original array
-  if (index === -1) {
-    // Make a copy since the user expect the original array to be untouched
-    return [...array] as T;
-  }
-
-  return removeIndexArray(array, index);
-};
+): T => removeIndexArray(array, array.findIndex(predicate));
