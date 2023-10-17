@@ -36,7 +36,6 @@
     "noUnusedLocals": false /* Report errors on unused locals. */,
     "noUnusedParameters": false /* Report errors on unused parameters. */,
     "preserveConstEnums": true,
-    "suppressImplicitAnyIndexErrors": true,
 
     /* Source Map Options */
     "sourceMap": true /* Generates corresponding '.map' file. */

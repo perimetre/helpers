@@ -7,7 +7,9 @@ import { faker } from '@faker-js/faker';
  * @returns string with replaced special characters
  */
 export const replaceSpecial = (str: string) => {
-  const conversions = {
+  const conversions: {
+    [key: string]: string;
+  } = {
     ae: 'ä|æ|ǽ',
     oe: 'ö|œ',
     ue: 'ü',
