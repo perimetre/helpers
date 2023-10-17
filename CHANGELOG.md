@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.3.0] - 2023-10-17
+
+### Added
+
+- Added csv helpers like `makeCsv` and `parseCsv`
+
 ## [1.2.1] - 2022-12-08
 
 ### Added
