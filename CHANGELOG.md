@@ -15,15 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed -->
 
-## [Unreleased]
+## [3.0.0] - 2024-05-16
 
 ### **Breaking changes**
 
-### Changes
-
-### Added
-
-### Fixed
+- Updates node version from 18 to 20
 
 ## [2.1.0] - 2024-4-15
 
