@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [3.0.2] - 2024-07-16
+
+### Fixed
+
+- Fixes awaitable event logic in CSV maker promise
+
 ## [3.0.1] - 2024-05-16
 
 ### Fixed
