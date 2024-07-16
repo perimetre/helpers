@@ -143,7 +143,6 @@ export const makeCsv = async (dir: string, name: string, content: Input, opts: O
       .on('error', reject)
       .on('finish', () => {
         writeStream.end();
-        resolve();
       });
 
     writeStream.on('error', reject).on('finish', resolve);
