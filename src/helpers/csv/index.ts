@@ -134,7 +134,10 @@ export const parseCsv = <T>(
  */
 export const makeCsv = async (dir: string, name: string, content: Input, opts: Options = {}, append = false) =>
   new Promise<void>((resolve, reject) => {
-    const writeStream = fs.createWriteStream(path.join(dir, name), { flags: append ? 'a' : 'w', encoding: 'utf8' });
+    const writeStream = fs.createWriteStream(path.join(dir, name), {
+      flags: append ? 'a' : 'w',
+      encoding: opts.encoding || 'utf8'
+    });
 
     stringify(content, opts)
       .on('data', (chunk) => {

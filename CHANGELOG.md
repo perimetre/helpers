@@ -25,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixes CSV maker helper to use file encoding option from args, when provided
+
 ## [3.0.2] - 2024-07-16
 
 ### Fixed
